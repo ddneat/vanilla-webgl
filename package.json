@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha --reporter dot --recursive --require ./test/globals --compilers js:babel-core/register test",
+    "test-ci": "npm run lint && npm test && npm run build",
     "build": "rimraf ./dist && mkdirp ./dist && cp ./public/* ./dist && browserify ./src/index.js -t babelify --insert-global-vars global --outfile ./dist/app.js",
     "lint": "eslint src test",
     "start": "http-server -p 3000 ./dist"
