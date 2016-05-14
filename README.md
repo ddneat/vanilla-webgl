@@ -1,3 +1,3 @@
 # Vanilla WebGL
 
-Demos without using any WebGL Framework.
+WebGL without any Framework.
