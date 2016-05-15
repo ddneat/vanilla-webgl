@@ -1,3 +1,11 @@
+function createWebGLContext(canvas) {
+  try {
+    return canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  } catch (error) {
+    throw error;
+  }
+}
+
 function render(canvas) {
   const gl = createWebGLContext(canvas);
 
@@ -9,16 +17,7 @@ function render(canvas) {
   }
 }
 
-function createWebGLContext(canvas) {
-  try {
-    return canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-  }
-  catch(error) {
-    throw error;
-  }
-}
-
 requestAnimationFrame(() => {
-  const canvas = document.getElementById("vanilla");
+  const canvas = document.getElementById('vanilla');
   render(canvas);
 });
