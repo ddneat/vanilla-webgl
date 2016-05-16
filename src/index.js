@@ -18,9 +18,9 @@ function addShader(gl, prog, shader, source) {
 function attributeSetFloats(gl, program, attributeName, itemSize, coordiantes) {
   gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(coordiantes), gl.STATIC_DRAW);
-  const attr = gl.getAttribLocation(program, attributeName);
-  gl.enableVertexAttribArray(attr);
-  gl.vertexAttribPointer(attr, itemSize, gl.FLOAT, false, 0, 0);
+  const attributeLocation = gl.getAttribLocation(program, attributeName);
+  gl.enableVertexAttribArray(attributeLocation);
+  gl.vertexAttribPointer(attributeLocation, itemSize, gl.FLOAT, false, 0, 0);
 }
 
 function render(canvas) {
