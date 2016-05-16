@@ -1,3 +1,9 @@
+const createFragmentShader = require('./shader/fragment.c');
+const createVertexShader = require('./shader/vertex.c');
+
+createFragmentShader();
+createVertexShader();
+
 function createWebGLContext(canvas) {
   try {
     return canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
