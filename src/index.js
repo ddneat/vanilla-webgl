@@ -15,12 +15,12 @@ function addShader(gl, prog, shader, source) {
   gl.attachShader(prog, shader);
 }
 
-function attributeSetFloats(gl, prog, attributeName, rsize, arr) {
+function attributeSetFloats(gl, program, attributeName, itemSize, coordiantes) {
   gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(arr), gl.STATIC_DRAW);
-  const attr = gl.getAttribLocation(prog, attributeName);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(coordiantes), gl.STATIC_DRAW);
+  const attr = gl.getAttribLocation(program, attributeName);
   gl.enableVertexAttribArray(attr);
-  gl.vertexAttribPointer(attr, rsize, gl.FLOAT, false, 0, 0);
+  gl.vertexAttribPointer(attr, itemSize, gl.FLOAT, false, 0, 0);
 }
 
 function render(canvas) {
@@ -32,22 +32,21 @@ function render(canvas) {
     gl.depthFunc(gl.LEQUAL);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-    const prog = gl.createProgram();
+    const program = gl.createProgram();
 
-    addShader(gl, prog, gl.createShader(gl.VERTEX_SHADER), createVertexShader());
-    addShader(gl, prog, gl.createShader(gl.FRAGMENT_SHADER), createFragmentShader());
+    addShader(gl, program, gl.createShader(gl.VERTEX_SHADER), createVertexShader());
+    addShader(gl, program, gl.createShader(gl.FRAGMENT_SHADER), createFragmentShader());
 
-    gl.linkProgram(prog);
-    gl.useProgram(prog);
+    gl.linkProgram(program);
+    gl.useProgram(program);
 
-    attributeSetFloats(gl, prog, 'pos', 3, [
-      -1, 0, 0,
+    attributeSetFloats(gl, program, 'pos', 3, [
+      -1, -1, 0,
       0, 1, 0,
-      0, -1, 0,
-      1, 0, 0
+      1, -1, 0
     ]);
 
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 3);
   }
 }
 
