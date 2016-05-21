@@ -49,12 +49,13 @@ function render(canvas) {
     gl.useProgram(program);
 
     attributeSetFloats(gl, program, 'vertexPosition', 3, [
-      -1, -1, 0,
-      0, 1, 0,
-      1, -1, 0
+      0.5,  0.5,  0.0,
+      -0.5, 0.5,  0.0,
+      0.5,  -0.5, 0.0,
+      -0.5, -0.5, 0.0
     ]);
 
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 3);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }
 }
 
