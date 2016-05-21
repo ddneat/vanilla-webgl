@@ -9,10 +9,13 @@ function createWebGLContext(canvas) {
   }
 }
 
-function addShader(gl, prog, shader, source) {
+function addShader(gl, program, shader, source) {
   gl.shaderSource(shader, source);
   gl.compileShader(shader);
-  gl.attachShader(prog, shader);
+  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+    console.error(gl.getShaderInfoLog(shader));
+  }
+  gl.attachShader(program, shader);
 }
 
 function attributeSetFloats(gl, program, attributeName, itemSize, items) {
@@ -38,6 +41,11 @@ function render(canvas) {
     addShader(gl, program, gl.createShader(gl.FRAGMENT_SHADER), createFragmentShader());
 
     gl.linkProgram(program);
+
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.error("Unable to initialize the shader program: " + gl.getProgramInfoLog(program));
+    }
+
     gl.useProgram(program);
 
     attributeSetFloats(gl, program, 'vertexPosition', 3, [
