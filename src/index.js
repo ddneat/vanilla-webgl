@@ -55,6 +55,13 @@ function render(canvas) {
       -0.5, -0.5, 0.0
     ]);
 
+    attributeSetFloats(gl, program, 'vertexColor', 4, [
+      1.0,  1.0,  1.0,  1.0,    // white
+      1.0,  0.0,  0.0,  1.0,    // red
+      0.0,  1.0,  0.0,  1.0,    // green
+      0.0,  0.0,  1.0,  1.0     // blue
+    ]);
+
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }
 }
