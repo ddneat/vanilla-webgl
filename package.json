@@ -35,12 +35,12 @@
     "eslint-plugin-import": "^1.7.0",
     "eslint-plugin-react": "^5.0.1",
     "mkdirp": "^0.5.1",
-    "mocha": "^2.4.5",
-    "power-assert": "^1.4.1",
-    "rimraf": "^2.5.2",
-    "sinon": "^1.17.3"
+    "rimraf": "^2.5.2"
   },
   "devDependencies": {
-    "http-server": "^0.9.0"
+    "http-server": "^0.9.0",
+    "sinon": "^1.17.3",
+    "mocha": "^2.4.5",
+    "power-assert": "^1.4.1"
   }
 }
