@@ -12,17 +12,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidneat/vanilla-webgl.git"
+    "url": "git+https://github.com/davidspinat/vanilla-webgl.git"
   },
   "keywords": [
     "webgl"
   ],
-  "author": "davidneat",
+  "author": "davidspinat",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/davidneat/vanilla-webgl/issues"
+    "url": "https://github.com/davidspinat/vanilla-webgl/issues"
   },
-  "homepage": "https://github.com/davidneat/vanilla-webgl#readme",
+  "homepage": "https://github.com/davidspinat/vanilla-webgl#readme",
   "dependencies": {
     "babel-core": "^6.7.7",
     "babel-plugin-espower": "^2.1.2",
